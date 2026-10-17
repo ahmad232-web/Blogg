@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up — DevBlog</title>
+  <meta name="description" content="Create your DevBlog account"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'blog/style.css' %}"/>
+</head>
+<body class="auth-body">
+
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-logo">Dev<span>Blog</span></div>
+      <h1 class="auth-title">Create account</h1>
+      <p class="auth-subtitle">Join and start sharing your ideas</p>
+
+      <div id="signup-error" class="form-error" style="display:none;"></div>
+      <div id="signup-success" class="form-success" style="display:none;"></div>
+
+      <form id="signup-form" class="auth-form">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="choose_a_username" required/>
+        </div>
+        <div class="form-group">
+          <label for="email">Email <span class="optional">(optional)</span></label>
+          <input type="email" id="email" name="email" placeholder="you@example.com"/>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-wrap">
+            <input type="password" id="password" name="password" placeholder="min. 6 characters" required/>
+            <button type="button" class="toggle-pw" id="toggle-pw">👁</button>
+          </div>
+          <div class="password-strength" id="pw-strength"></div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full" id="signup-btn">
+          Create Account
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        <p>Already have an account? <a href="/login/">Sign In</a></p>
+      </div>
+
+      <div class="jwt-info">
+        <span class="jwt-badge">🔐 JWT</span>
+        <p>On signup, the server creates your account and returns an <strong>access token</strong> — you're logged in instantly.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script>
+    const API_BASE = '';
+  </script>
+  {% load static %}
+  <script src="{% static 'blog/index.js' %}"></script>
+
+</body>
+</html>

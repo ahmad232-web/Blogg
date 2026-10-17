@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DevBlog — Share Your Thoughts</title>
+  <meta name="description" content="A modern blog platform to read and share ideas on technology and development."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'blog/style.css' %}"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">Dev<span>Blog</span></a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <div id="auth-links-guest">
+          <a href="/login/" class="btn btn-outline">Login</a>
+          <a href="/signup/" class="btn btn-primary">Sign Up</a>
+        </div>
+        <div id="auth-links-user" style="display:none;">
+          <span id="nav-username" class="nav-username"></span>
+          <button id="logout-btn" class="btn btn-outline">Logout</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-badge">✦ Welcome to DevBlog</span>
+        <h1 class="hero-title">Ideas Worth<br/><span class="gradient-text">Sharing</span></h1>
+        <p class="hero-subtitle">A place for developers to read, write, and connect through stories and tutorials.</p>
+        <div id="hero-cta-guest">
+          <a href="/signup/" class="btn btn-primary btn-lg">Start Writing</a>
+          <a href="#posts" class="btn btn-ghost btn-lg">Read Posts ↓</a>
+        </div>
+        <div id="hero-cta-user" style="display:none;">
+          <a href="#posts" class="btn btn-primary btn-lg">Read Posts ↓</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="card-dot red"></div>
+          <div class="card-dot yellow"></div>
+          <div class="card-dot green"></div>
+          <pre class="code-preview"><span class="c-kw">const</span> blog = {
+  <span class="c-str">author</span>: <span class="c-val">"You"</span>,
+  <span class="c-str">topic</span>: <span class="c-val">"JWT Auth"</span>,
+  <span class="c-str">reads</span>: <span class="c-val">∞</span>
+};</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="posts-section" id="posts">
+      <div class="section-header">
+        <h2>Latest Posts</h2>
+        <span id="post-count" class="post-count-badge"></span>
+      </div>
+      <div id="posts-grid" class="posts-grid">
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+      </div>
+      <div id="posts-error" class="error-msg" style="display:none;"></div>
+      <div id="no-posts" class="no-posts" style="display:none;">
+        <p>No posts yet. Be the first to write one!</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Built with Django + JWT &mdash; <strong>DevBlog</strong> &copy; 2024</p>
+  </footer>
+
+  <div id="toast" class="toast"></div>
+
+  {% load static %}
+  <script>
+    const API_BASE = '';
+  </script>
+  <script src="{% static 'blog/index.js' %}"></script>
+
+</body>
+</html>

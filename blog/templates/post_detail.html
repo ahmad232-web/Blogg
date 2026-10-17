@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="page-title">Post — DevBlog</title>
+  <meta name="description" content="Read this post on DevBlog"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'blog/style.css' %}"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">Dev<span>Blog</span></a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">← Back</a>
+        <div id="auth-links-guest">
+          <a href="/login/" class="btn btn-outline">Login</a>
+          <a href="/signup/" class="btn btn-primary">Sign Up</a>
+        </div>
+        <div id="auth-links-user" style="display:none;">
+          <span id="nav-username" class="nav-username"></span>
+          <button id="logout-btn" class="btn btn-outline">Logout</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="post-main">
+    <div id="post-loading" class="post-skeleton">
+      <div class="sk-line sk-title"></div>
+      <div class="sk-line sk-meta"></div>
+      <div class="sk-line"></div>
+      <div class="sk-line"></div>
+      <div class="sk-line sk-short"></div>
+    </div>
+
+    <article id="post-article" class="post-article" style="display:none;">
+      <header class="post-header">
+        <div id="post-tags" class="post-tags"></div>
+        <h1 id="post-title" class="post-title-large"></h1>
+        <div class="post-meta">
+          <div class="author-avatar" id="author-initials"></div>
+          <div>
+            <span id="post-author" class="meta-author"></span>
+            <span id="post-date" class="meta-date"></span>
+          </div>
+        </div>
+      </header>
+      <div id="post-content" class="post-content"></div>
+    </article>
+
+    <div id="post-error" class="error-msg" style="display:none;">Post not found.</div>
+  </main>
+
+  <footer class="footer">
+    <p>Built with Django + JWT &mdash; <strong>DevBlog</strong> &copy; 2024</p>
+  </footer>
+
+  <div id="toast" class="toast"></div>
+
+  <script>
+    const API_BASE = '';
+    const POST_SLUG = '{{ slug }}';
+  </script>
+  {% load static %}
+  <script src="{% static 'blog/index.js' %}"></script>
+
+</body>
+</html>
